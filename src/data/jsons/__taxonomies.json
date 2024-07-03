@@ -1,0 +1,41 @@
+[
+    {
+      "id": 1,
+      "name": "Java",
+      "thumbnail": "https://www.finoit.com/wp-content/uploads/2022/11/future-of-java-programming-language.jpg",
+      "href":"/category/1",
+      "color":"pink",
+      "taxonomy":"category"
+
+    },
+    {
+      "id": 2,
+      "name": "React",
+      "thumbnail":"https://blog.logrocket.com/wp-content/uploads/2023/10/complete-guide-react-refs.png",
+      "href": "/category/2",
+      "color":"purple"
+    },
+    {
+      "id": 3,
+      "name": "Kubernetes",
+      "href": "/category/3",
+      "thumbnail":"https://upload.wikimedia.org/wikipedia/commons/3/39/Kubernetes_logo_without_workmark.svg",
+      "color":"green"
+    },
+    {
+      "id": 4,
+      "name": "Amazon Web Services",
+      "href": "/category/4",
+      "thumbnail":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ7PB7gDdA6O7gpwXX-cDoelORPic-1rSP6xRUfJQX_zw&s",
+      "color":"blue"
+    },
+    {
+      "id": 5,
+      "name": "Database",
+      "href": "/category/5",
+      "thumbnail":"https://cdn.pixabay.com/photo/2013/07/12/17/22/database-152091_640.png",
+      "color":"red",
+      "taxonomy":"category"
+
+    }
+  ]
