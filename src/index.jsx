@@ -7,7 +7,7 @@ import 'tailwindcss/tailwind.css';
 import './styles/index.css';
 import { ItemProvider } from './contains/ItemContext';
 import { GoogleOAuthProvider } from '@react-oauth/google';
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 
 
 
@@ -15,13 +15,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root')
 );
 root.render(
-  <BrowserRouter>
+  <HashRouter>
   <GoogleOAuthProvider clientId="836365072370-l9uskggtbd3cqeo2q2l9ktv5uohb1197.apps.googleusercontent.com">
         <ItemProvider>
     <App />
     </ItemProvider>
   </GoogleOAuthProvider>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
