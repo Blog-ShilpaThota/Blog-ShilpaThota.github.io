@@ -1,0 +1,31 @@
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # Specify your node version
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        env:
+          REACT_APP_YOUTUBE_API_KEY: ${{ secrets.REACT_APP_YOUTUBE_API_KEY }}
+          REACT_APP_GOOGLE_REFRESH_TOKEN: ${{ secrets.REACT_APP_GOOGLE_REFRESH_TOKEN }}
+          REACT_APP_GOOGLE_CLIENT_ID: ${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}
+          REACT_APP_GOOGLE_CLIENT_SECRET: ${{ secrets.REACT_APP_GOOGLE_CLIENT_SECRET }}
+          REACT_APP_YOUTUBE_CHANNEL_ID: ${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}
+          REACT_APP_GIT_API_KEY: ${{ secrets.REACT_APP_GIT_API_KEY }}
+        run: npm run build
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build  # or your build directory
