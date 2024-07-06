@@ -52,7 +52,7 @@ jobs:
           REACT_APP_GOOGLE_CLIENT_SECRET: ${{ secrets.REACT_APP_GOOGLE_CLIENT_SECRET }}
           REACT_APP_YOUTUBE_CHANNEL_ID: ${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}
           REACT_APP_GIT_API_KEY: ${{ secrets.REACT_APP_GIT_API_KEY }}
-        run: npm run build
+        run: npm run deploy
 
       - name: Create CNAME file
         run: echo 'blog.shilpathota.com' > ./build/CNAME  # Replace with your custom domain
