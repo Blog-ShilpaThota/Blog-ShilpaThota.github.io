@@ -19,7 +19,27 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '14'  # Specify your node version
+          node-version: '20.10.0'  # Specify your node version
+      - name: Set API secrets
+        run: |
+          echo "Setting up secrets..."
+          echo "REACT_APP_YOUTUBE_API_KEY=${{ secrets.REACT_APP_YOUTUBE_API_KEY }}" >> $GITHUB_ENV
+          echo "REACT_APP_GOOGLE_REFRESH_TOKEN=${{ secrets.REACT_APP_GOOGLE_REFRESH_TOKEN }}" >> $GITHUB_ENV
+          echo "REACT_APP_GOOGLE_CLIENT_ID= ${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_GOOGLE_CLIENT_SECRET= ${{ secrets.REACT_APP_GOOGLE_CLIENT_SECRET }}" >> $GITHUB_ENV
+          echo "REACT_APP_YOUTUBE_CHANNEL_ID= ${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}" >> $GITHUB_ENV
+          echo "REACT_APP_GIT_API_KEY= ${{ secrets.REACT_APP_GIT_API_KEY }}" >> $GITHUB_ENV
+          echo "Secrets are set."
+
+      - name: Show secrets
+        run: |
+          echo "Printing secrets..."
+          echo "REACT_APP_YOUTUBE_API_KEY=$REACT_APP_YOUTUBE_API_KEY"
+          echo "REACT_APP_GOOGLE_CLIENT_SECRET=$REACT_APP_GOOGLE_CLIENT_SECRET"
+          echo "REACT_APP_GOOGLE_CLIENT_ID=$REACT_APP_GOOGLE_CLIENT_ID"
+          echo "REACT_APP_YOUTUBE_CHANNEL_ID=$REACT_APP_YOUTUBE_CHANNEL_ID"
+          echo "REACT_APP_GIT_API_KEY=$REACT_APP_GIT_API_KEY"
+          echo "REACT_APP_GOOGLE_REFRESH_TOKEN=$REACT_APP_GOOGLE_REFRESH_TOKEN"
 
       - name: Install dependencies
         run: npm install
