@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import NcImage from "../../components/NcImage/NcImage";
 import SingleHeaderMediumArticle from "../singles/SingleHeaderMediumArticle";
 import Layout from "./Postlayout";
 import { useParams } from "react-router-dom";
