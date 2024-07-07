@@ -58,11 +58,10 @@ jobs:
         run: npm run build
       - name: Create CNAME file
         run: echo 'blog.shilpathota.com' > ./build/CNAME  # Replace with your custom domain
-
       - name: Deploy to GitHub Pages
         run: |
           echo ${{secrets.REACT_APP_GITHUB_TOKEN}} | sed 's/./& /g'
           git config --global user.email "blog.shilpathota@gmail.com"
           git config --global user.name "Blog-ShilpaThota"
           git remote set-url origin https://$REACT_APP_GITHUB_TOKEN@github.com/${{ github.repository }}.git
-          npx gh-pages -d build
+          npm run deploy
