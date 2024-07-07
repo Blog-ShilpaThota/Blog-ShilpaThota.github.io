@@ -23,13 +23,13 @@ jobs:
       - name: Set API secrets
         run: |
           echo "Setting up secrets..."
-          echo "REACT_APP_YOUTUBE_API_KEY=${{ secrets.REACT_APP_YOUTUBE_API_KEY }}" >> $GITHUB_ENV
-          echo "REACT_APP_GOOGLE_REFRESH_TOKEN=${{ secrets.REACT_APP_GOOGLE_REFRESH_TOKEN }}" >> $GITHUB_ENV
-          echo "REACT_APP_GOOGLE_CLIENT_ID= ${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}" >> $GITHUB_ENV
-          echo "REACT_APP_GOOGLE_CLIENT_SECRET= ${{ secrets.REACT_APP_GOOGLE_CLIENT_SECRET }}" >> $GITHUB_ENV
-          echo "REACT_APP_YOUTUBE_CHANNEL_ID= ${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}" >> $GITHUB_ENV
-          echo "REACT_APP_GIT_API_KEY= ${{ secrets.REACT_APP_GIT_API_KEY }}" >> $GITHUB_ENV
-          echo "REACT_APP_GITHUB_TOKEN=${{ secrets.REACT_APP_GITHUB_TOKEN }}" >> $GITHUB_ENV
+          echo "REACT_APP_YOUTUBE_API_KEY='${{ secrets.REACT_APP_YOUTUBE_API_KEY }}'" >> $GITHUB_ENV
+          echo "REACT_APP_GOOGLE_REFRESH_TOKEN='${{ secrets.REACT_APP_GOOGLE_REFRESH_TOKEN }}'" >> $GITHUB_ENV
+          echo "REACT_APP_GOOGLE_CLIENT_ID='${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}'" >> $GITHUB_ENV
+          echo "REACT_APP_GOOGLE_CLIENT_SECRET='${{ secrets.REACT_APP_GOOGLE_CLIENT_SECRET }}'" >> $GITHUB_ENV
+          echo "REACT_APP_YOUTUBE_CHANNEL_ID='${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}'" >> $GITHUB_ENV
+          echo "REACT_APP_GIT_API_KEY='${{ secrets.REACT_APP_GIT_API_KEY }}'" >> $GITHUB_ENV
+          echo "REACT_APP_GITHUB_TOKEN='${{ secrets.REACT_APP_GITHUB_TOKEN }}'" >> $GITHUB_ENV
           echo "Secrets are set."
 
       - name: Show secrets
@@ -47,12 +47,12 @@ jobs:
       
       - name: Build project
         env:
-          REACT_APP_YOUTUBE_API_KEY: ${{ secrets.REACT_APP_YOUTUBE_API_KEY }}
-          REACT_APP_GOOGLE_REFRESH_TOKEN: ${{ secrets.REACT_APP_GOOGLE_REFRESH_TOKEN }}
-          REACT_APP_GOOGLE_CLIENT_ID: ${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}
-          REACT_APP_GOOGLE_CLIENT_SECRET: ${{ secrets.REACT_APP_GOOGLE_CLIENT_SECRET }}
-          REACT_APP_YOUTUBE_CHANNEL_ID: ${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}
-          REACT_APP_GIT_API_KEY: ${{ secrets.REACT_APP_GIT_API_KEY }}
+          REACT_APP_YOUTUBE_API_KEY: '${{ secrets.REACT_APP_YOUTUBE_API_KEY }}'
+          REACT_APP_GOOGLE_REFRESH_TOKEN: '${{ secrets.REACT_APP_GOOGLE_REFRESH_TOKEN }}'
+          REACT_APP_GOOGLE_CLIENT_ID: '${{ secrets.REACT_APP_GOOGLE_CLIENT_ID }}'
+          REACT_APP_GOOGLE_CLIENT_SECRET: '${{ secrets.REACT_APP_GOOGLE_CLIENT_SECRET }}'
+          REACT_APP_YOUTUBE_CHANNEL_ID: ${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}'
+          REACT_APP_GIT_API_KEY: '${{ secrets.REACT_APP_GIT_API_KEY }}'
         run: npm run build
 
       - name: Create CNAME file
