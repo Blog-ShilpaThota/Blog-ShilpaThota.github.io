@@ -48,6 +48,7 @@ jobs:
         run: |
           git config --global user.email "blog.shilpathota@gmail.com"
           git config --global user.name "Blog-ShilpaThota"
+          git config remote.origin.url 'https://${{ secrets.REACT_APP_GITHUB_TOKEN }}@github.com/Blog-ShilpaThota/Blog-ShilpaThota.github.io.git'
       
       - name: Build project
         env:
