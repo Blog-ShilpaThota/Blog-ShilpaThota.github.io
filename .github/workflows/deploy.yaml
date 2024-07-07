@@ -47,7 +47,7 @@ jobs:
       - name: Configure Git
         run: |
           git config --global user.email "blog.shilpathota@gmail.com"
-          git config --global user.name "Shilpa Thota"
+          git config --global user.name "Blog-ShilpaThota"
       
       - name: Build project
         env:
