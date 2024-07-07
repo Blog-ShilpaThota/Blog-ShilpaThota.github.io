@@ -11,6 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
@@ -19,6 +20,7 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '14'  # Specify your node version
+
       - name: Set API secrets
         run: |
           echo "Setting up secrets..."
@@ -44,7 +46,7 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-      
+
       - name: Build project
         env:
           REACT_APP_YOUTUBE_API_KEY: ${{ secrets.REACT_APP_YOUTUBE_API_KEY }}
@@ -54,14 +56,14 @@ jobs:
           REACT_APP_YOUTUBE_CHANNEL_ID: ${{ secrets.REACT_APP_YOUTUBE_CHANNEL_ID }}
           REACT_APP_GIT_API_KEY: ${{ secrets.REACT_APP_GIT_API_KEY }}
           REACT_APP_GITHUB_TOKEN: ${{ secrets.REACT_APP_GITHUB_TOKEN }}
-
         run: npm run build
+
       - name: Create CNAME file
         run: echo 'blog.shilpathota.com' > ./build/CNAME  # Replace with your custom domain
+
       - name: Deploy to GitHub Pages
         run: |
-          echo ${{secrets.REACT_APP_GITHUB_TOKEN}} | sed 's/./& /g'
           git config --global user.email "blog.shilpathota@gmail.com"
           git config --global user.name "Blog-ShilpaThota"
-          git remote set-url origin https://$REACT_APP_GITHUB_TOKEN@github.com/${{ github.repository }}.git
+          git remote set-url origin https://${{ secrets.REACT_APP_GITHUB_TOKEN }}@github.com/${{ github.repository }}.git
           npm run deploy
