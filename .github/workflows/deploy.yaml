@@ -56,7 +56,6 @@ jobs:
           REACT_APP_GITHUB_TOKEN: '${{ secrets.REACT_APP_GITHUB_TOKEN }}'
 
         run: npm run build
-
       - name: Create CNAME file
         run: echo 'blog.shilpathota.com' > ./build/CNAME  # Replace with your custom domain
 
